@@ -39,3 +39,42 @@ export const revenueData = [
     {month: "Nov", revenue: 95000},
     {month: "Dec", revenue: 30000}
 ]
+
+export const orders = [
+    {
+        id: '#1042',
+        customer: 'John Doe',
+        product: 'Pro Plan',
+        status: 'Completed',
+        amount: '$120.00'
+    },
+    {
+        id: '#1043',
+        customer: 'Jane Smith',
+        product: 'Basic Plan',
+        status: 'Pending',
+        amount: '$99.00'
+    },
+    {
+        id: '#1044',
+        customer: 'Alice Johnson',
+        product: 'Pro Plan',
+        status: 'Completed',
+        amount: '$120.00'
+    },
+    {
+        id: '#1045',
+        customer: 'Bob Brown',
+        product: 'Basic Plan',
+        status: 'Cancelled',
+        amount: '$99.00'
+    },
+    {
+        id: '#1046',
+        customer: 'Charlie Davis',
+        product: 'Enterprise',
+        status: 'Completed',
+        amount: '$500.00'
+    }
+]
+

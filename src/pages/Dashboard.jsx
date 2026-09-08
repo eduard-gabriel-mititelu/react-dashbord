@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import StatCard from "../components/StatCard";
 import {stats} from "../data/dashboardData";
 import RevenueChart from "../components/RevenueChart";
+import OrderTable from "../components/OrderTable";
 
 function Dashboard() {
   return (
@@ -28,6 +29,8 @@ function Dashboard() {
                 </section>
 
                 <RevenueChart />
+
+                <OrderTable />
 
             </main>
         </div>
