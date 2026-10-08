@@ -5,7 +5,7 @@ function Header({ onMenuClick }) {
     <header className="header">
         <button 
           onClick={onMenuClick} 
-          aria-label="Open navuigation"
+          aria-label="Open navigation"
           className="menu-button"
         >
             <Menu size={22} />
@@ -22,6 +22,7 @@ function Header({ onMenuClick }) {
             <button aria-label="Profile">
                 <User size={20} />
             </button>
+            
         </div>
     </header>
   );

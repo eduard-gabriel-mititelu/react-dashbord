@@ -166,7 +166,6 @@
   padding: 24px;
   margin: 10px;
   margin-top: 24px;
-  
 }
 
 .chart-header {
@@ -192,6 +191,7 @@
   border-radius: 12px;
   padding: 24px;
   margin-top: 24px;
+  margin: 10px;
 }
 
 .orders-header {
