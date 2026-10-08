@@ -7,6 +7,7 @@ import {
   Package,
   X
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Sidebar({ isOpen, onClose }) {
   return (
@@ -23,30 +24,30 @@ function Sidebar({ isOpen, onClose }) {
           <X size={22} />
         </button>
         <nav className="sidebar-nav">
-                <a href="#" className="active">
+                <Link to="/dashboard" className="active" onClick={onClose}>
                     <LayoutDashboard size={20} />
                     <span>Dashboard</span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/analytics" onClick={onClose}>
                     <BarChart3 size={20} />
                     <span>Analytics</span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/customers" onClick={onClose}>
                     <Users size={20} />
                     <span>Customers</span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/orders" onClick={onClose}>
                     <ShoppingCart size={20} />
                     <span>Orders</span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/products" onClick={onClose}>
                     <Package size={20} />
                     <span>Products</span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/settings" onClick={onClose}>
                     <Settings size={20} />
                     <span>Settings</span>
-                </a>
+                </Link>
         </nav>
     </aside>
   );
