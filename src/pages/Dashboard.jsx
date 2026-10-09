@@ -20,6 +20,7 @@ function Dashboard() {
                         title={stat.title}
                         value={stat.value}
                         change={stat.change}
+                        color={`${Number(stat.change.replace('%', '')) < 0 ? 'negative' : 'positive'}`}
                     />
                 ))}
             </section>

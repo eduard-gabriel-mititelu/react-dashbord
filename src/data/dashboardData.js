@@ -21,7 +21,7 @@ export const stats = [
         id: 4,
         title: "Conversion",
         value: "3.5%",
-        change: "+0.5%"
+        change: "-0.5%"
     }
 ]
 
