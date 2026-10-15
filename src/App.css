@@ -227,6 +227,56 @@
   cursor: pointer;
 }
 
+.search-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #b1b1b1;
+  transition: all 0.2s ease;
+}
+
+.search-label:focus-within {
+  border-bottom: 1px solid #161616;
+}
+
+.search-label:focus-within svg {
+  color: #161616;
+}
+
+.search-label .search-icon {
+  height: 40px;
+  color: #b1b1b1;
+  transition: all 0.2s ease;
+}
+
+.search-label .search-input {
+  height: 40px;
+  padding: 10px;
+  border: 0;
+}
+
+.search-label .search-input:focus {
+  border: 0;
+  outline: 0;
+}
+
+.dropdown {
+  padding: 10px;
+  border: 1px solid #b1b1b1;
+  color: #b1b1b1;
+}
+
+.dropdown option{
+  padding: 10px;
+  color: #161616;
+}
+
+.dropdown:focus {
+  padding: 10px;
+  border: 1px solid #161616;
+  color: #b1b1b1;
+}
+
 .table-wrapper {
   overflow-x: auto;
 }
