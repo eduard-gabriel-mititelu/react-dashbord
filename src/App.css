@@ -576,3 +576,9 @@ tbody tr:hover {
     padding: 0 20px;
   }
 }
+
+.header,
+.sidebar {
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+}
