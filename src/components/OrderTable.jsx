@@ -6,19 +6,30 @@ import {orders} from "../data/dashboardData.js";
 function OrderTable() {
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState("All");
+    const [sortOrders, setSortOrders] = useState("default");
 
     const filteredOrders = orders.filter((order) => {
         const search = searchTerm.toLowerCase();
 
         const matchesSearch = order.id.toLowerCase().includes(search) || order.customer.toLowerCase().includes(search)
-            || order.product.toLowerCase().includes(search);
 
         const matchesStatus = statusFilter === "All" || order.status === statusFilter;
 
         return (
             matchesSearch && matchesStatus
-        )
+        );
     })
+
+    const sortedOrders = [...filteredOrders].sort((a, b) => {
+        const amountA = Number(String(a.amount).replace(/[^0-9.-]/g, ""));
+        const amountB = Number(String(b.amount).replace(/[^0-9.-]/g, ""));
+
+        if (sortOrders === "ascending")
+            return amountA - amountB;
+
+        if (sortOrders === "descending")
+            return amountB - amountA;
+    });
 
     return (
         <section className="orders-card">
@@ -52,6 +63,15 @@ function OrderTable() {
                     <option value="Pending">Pending</option>
                     <option value="Canceld">Cancelled</option>
                 </select>
+                <select
+                    value={sortOrders}
+                    onChange={(event) => {setSortOrders(event.target.value)}}
+                    className="dropdown"
+                >
+                    <option value="default">Default order</option>
+                    <option value="ascending">Amount: Low to High</option>
+                    <option value="descending">Amount: High to Low</option>
+                </select>
             </div>
 
             <div className="table-wrapper">
@@ -66,7 +86,7 @@ function OrderTable() {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredOrders.map((order) => (
+                        {sortedOrders.map((order) => (
                             <tr key={order.id}>
                                 <td>{order.id}</td>
                                 <td>{order.customer}</td>
