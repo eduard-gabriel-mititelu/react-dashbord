@@ -14,10 +14,11 @@
   overflow-y: auto;
   box-sizing: border-box;
   z-index: 100;
-
   color: var(--text-primary);
   background: rgba(10, 14, 31, 0.76);
   border-right: 1px solid var(--border-glass);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  backdrop-filter: blur(15px) saturate(150%);
 }
 
 .sidebar-logo {
@@ -92,6 +93,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  backdrop-filter: blur(15px) saturate(150%);
 }
 
 .header h1 {
@@ -571,10 +574,4 @@ tbody tr:hover {
   .header {
     padding: 0 20px;
   }
-}
-
-.header,
-.sidebar {
-  -webkit-backdrop-filter: blur(15px) saturate(150%);
-  backdrop-filter: blur(15px) saturate(150%);
 }
