@@ -4,11 +4,15 @@
 }
 
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 240px;
-  min-height: 100vh;
+  height: 100vh;
   background: #111827;
   color: white;
   padding: 24px 16px;
+  overflow-y: auto;
 }
 
 .sidebar-logo {
@@ -68,6 +72,8 @@
 .dashboard-content {
   flex: 1;
   min-width: 0;
+  margin-left: 240px;
+  width: calc(100% - 240px);
 }
 
 .header {
@@ -207,7 +213,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-bottom: 24px;
+}
+
+.orders-header > * {
+  margin: 10px 5px;
 }
 
 .orders-header h2 {
@@ -333,6 +345,11 @@ td {
 }
 
 @media (max-width: 768px) {
+  .dashboard-content {
+    width: 100%;
+    margin-left: 0;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
@@ -355,10 +372,6 @@ td {
 
   .orders-card h2, .orders-card p {
     margin: 15px 0px;
-  }
-
-  .dashboard-main {
-    padding: 20px;
   }
 
   header {
