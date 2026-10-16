@@ -18,8 +18,8 @@
   color: var(--text-primary);
   background: rgba(10, 14, 31, 0.76);
   border-right: 1px solid var(--border-glass);
-  backdrop-filter: blur(24px) saturate(145%);
-  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  backdrop-filter: blur(15px) saturate(100%);
+  -webkit-backdrop-filter: blur(15px) saturate(100%);
 }
 
 .sidebar-logo {
@@ -87,13 +87,15 @@
   height: 72px;
   background: rgba(12, 17, 36, 0.62);
   border-bottom: 1px solid var(--border-glass);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header h1 {
