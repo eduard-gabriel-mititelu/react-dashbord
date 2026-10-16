@@ -1,6 +1,7 @@
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
+  background: transparent;
 }
 
 .sidebar {
@@ -9,10 +10,16 @@
   left: 0;
   width: 240px;
   height: 100vh;
-  background: #111827;
-  color: white;
   padding: 24px 16px;
   overflow-y: auto;
+  box-sizing: border-box;
+  z-index: 100;
+
+  color: var(--text-primary);
+  background: rgba(10, 14, 31, 0.76);
+  border-right: 1px solid var(--border-glass);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
 }
 
 .sidebar-logo {
@@ -78,8 +85,11 @@
 
 .header {
   height: 72px;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
+  background: rgba(12, 17, 36, 0.62);
+  border-bottom: 1px solid var(--border-glass);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,6 +97,7 @@
 }
 
 .header h1 {
+  color: var(--text-primary);
   font-size: 24px;
 }
 
@@ -98,17 +109,26 @@
 .header-actions button {
   width: 40px;
   height: 40px;
-  border: 1px solid #e5e7eb;
-  background: white;
-  border-radius: 8px;
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-secondary);
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .header-actions button:hover {
-  background: #f9fafb;
+  background: rgba(139, 165, 255, 0.12);
+  border-color: rgba(139, 165, 255, 0.35);
+  color: var(--text-primary);
+  transform: translateY(-1px);
 }
 
 .dashboard-main {
@@ -143,44 +163,46 @@
 }
 
 .stat-card {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
   padding: 24px;
 }
 
+.stat-card:hover {
+  background: var(--bg-glass-hover);
+  border-color: rgba(139, 165, 255, 0.25);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
 .stat-card-title {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 12px;
 }
 
 .stat-card-value {
+  color: var(--text-primary);
   font-size: 28px;
   margin-bottom: 8px;
 }
 
 .stat-card-change {
-  color: #16a34a;
   font-size: 14px;
   font-weight: 600;
 }
 
 .stat-card-change.negative {
-  color: #dc2626;
+  color: #ff8f9c;
 }
 
 .stat-card-change.positive {
-  color: #16a34a;
+  color: #78e0b0;
 }
 
 .revenue-chart {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
   padding: 24px;
-  margin: 10px;
-  margin-top: 24px;
+  margin: 24px 10px;
 }
 
 .chart-header {
@@ -188,11 +210,12 @@
 }
 
 .chart-header h2 {
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
 .chart-header p {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
@@ -201,12 +224,8 @@
 }
 
 .orders-card {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
   padding: 24px;
-  margin-top: 24px;
-  margin: 10px;
+  margin: 24px 10px 10px;
 }
 
 .orders-header {
@@ -223,42 +242,153 @@
 }
 
 .orders-header h2 {
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
 .orders-header p {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 .orders-header button {
-  border: 1px solid #e5e7eb;
-  background: white;
-  padding: 8px 14px;
-  border-radius: 6px;
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-primary);
+  padding: 9px 14px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.orders-header button:hover {
+  background: rgba(139, 165, 255, 0.12);
+  border-color: rgba(139, 165, 255, 0.35);
+}
+
+.stat-card,
+.revenue-chart,
+.orders-card {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(210, 220, 255, 0.035);
+
+  border: 1px solid rgba(235, 240, 255, 0.14);
+  border-radius: 24px;
+
+  -webkit-backdrop-filter: blur(28px) saturate(115%);
+  backdrop-filter: blur(28px) saturate(115%);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+.stat-card::before,
+.revenue-chart::before,
+.orders-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.105) 0%,
+      rgba(255, 255, 255, 0.035) 12%,
+      transparent 32%,
+      transparent 75%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
+
+  opacity: 1;
+}
+
+.stat-card::after,
+.revenue-chart::after,
+.orders-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  z-index: 2;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.48),
+    rgba(220, 230, 255, 0.20),
+    transparent
+  );
+}
+
+.stat-card > *,
+.revenue-chart > *,
+.orders-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card:hover,
+.revenue-chart:hover,
+.orders-card:hover {
+  background: rgba(220, 230, 255, 0.055);
+  border-color: rgba(235, 242, 255, 0.24);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+
+  transform: translateY(-2px);
 }
 
 .search-label {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #b1b1b1;
-  transition: all 0.2s ease;
+  padding: 0 8px;
+  border: 1px solid var(--border-glass);
+  border-radius: 10px;
+  background: rgba(5, 9, 24, 0.35);
+  transition: border-color 180ms ease, background 180ms ease;
 }
 
 .search-label:focus-within {
-  border-bottom: 1px solid #161616;
+  border-color: rgba(139, 165, 255, 0.65);
+  background: rgba(139, 165, 255, 0.06);
 }
 
-.search-label:focus-within svg {
-  color: #161616;
+.search-label:focus-within .search-icon {
+  color: var(--accent-blue);
 }
 
-.search-label .search-icon {
+
+.search-label .search-input {
+  width: 180px;
+  min-width: 0;
   height: 40px;
-  color: #b1b1b1;
-  transition: all 0.2s ease;
+  padding: 10px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.search-label .search-input::placeholder {
+  color: #7783a5;
 }
 
 .search-label .search-input {
@@ -273,20 +403,22 @@
 }
 
 .dropdown {
-  padding: 10px;
-  border: 1px solid #b1b1b1;
-  color: #b1b1b1;
+  padding: 10px 12px;
+  border: 1px solid var(--border-glass);
+  border-radius: 10px;
+  background: rgba(14, 19, 39, 0.9);
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
 }
 
-.dropdown option{
-  padding: 10px;
-  color: #161616;
+.dropdown option {
+  background: #11182e;
+  color: var(--text-primary);
 }
 
 .dropdown:focus {
-  padding: 10px;
-  border: 1px solid #161616;
-  color: #b1b1b1;
+  border-color: rgba(139, 165, 255, 0.65);
 }
 
 .table-wrapper {
@@ -302,17 +434,26 @@ th,
 td {
   padding: 14px 12px;
   text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid rgba(180, 195, 255, 0.09);
 }
 
 th {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 13px;
   font-weight: 600;
 }
 
 td {
+  color: #dce4ff;
   font-size: 14px;
+}
+
+tbody tr {
+  transition: background 160ms ease;
+}
+
+tbody tr:hover {
+  background: rgba(139, 165, 255, 0.055);
 }
 
 .status {
@@ -321,21 +462,25 @@ td {
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
+  border: 1px solid transparent;
 }
 
 .status.completed {
-  background: #dcfce7;
-  color: #166534;
+  background: rgba(52, 211, 153, 0.12);
+  color: #78e0b0;
+  border-color: rgba(52, 211, 153, 0.18);
 }
 
 .status.pending {
-  background: #fef3c7;
-  color: #92400e;
+  background: rgba(251, 191, 36, 0.12);
+  color: #fcd574;
+  border-color: rgba(251, 191, 36, 0.18);
 }
 
 .status.cancelled {
-  background: #fee2e2;
-  color: #991b1b;
+  background: rgba(251, 113, 133, 0.12);
+  color: #ff9cab;
+  border-color: rgba(251, 113, 133, 0.18);
 }
 
 @media (max-width: 1200px) {
