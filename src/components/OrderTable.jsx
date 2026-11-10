@@ -61,7 +61,7 @@ function OrderTable() {
                     <option value="All">All statuses</option>
                     <option value="Completed">Completed</option>
                     <option value="Pending">Pending</option>
-                    <option value="Canceld">Cancelled</option>
+                    <option value="Cancelled">Cancelled</option>
                 </select>
                 <select
                     value={sortOrders}

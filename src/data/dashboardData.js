@@ -42,39 +42,83 @@ export const revenueData = [
 
 export const orders = [
     {
-        id: '#1042',
-        customer: 'John Doe',
-        product: 'Pro Plan',
-        status: 'Completed',
-        amount: '$120.00'
+        id: "#1042",
+        customerId: "USR-001",
+        customer: "John Doe",
+        product: "Pro Plan",
+        status: "Completed",
+        amount: 12000,
+        currency: "USD",
+        date: {
+            year: 2026,
+            month: 10,
+            day: 19,
+            hour: 14,
+            minute: 35
+        }
     },
     {
-        id: '#1043',
-        customer: 'Jane Smith',
-        product: 'Basic Plan',
-        status: 'Pending',
-        amount: '$99.00'
+        id: "#1043",
+        customerId: "USR-002",
+        customer: "Jane Smith",
+        product: "Basic Plan",
+        status: "Pending",
+        amount: 9900,
+        currency: "USD",
+        date: {
+            year: 2026,
+            month: 10,
+            day: 19,
+            hour: 15,
+            minute: 10
+        }
     },
     {
-        id: '#1044',
-        customer: 'Alice Johnson',
-        product: 'Pro Plan',
-        status: 'Completed',
-        amount: '$120.00'
+        id: "#1044",
+        customerId: "USR-003",
+        customer: "Alice Johnson",
+        product: "Pro Plan",
+        status: "Completed",
+        amount: 12000,
+        currency: "USD",
+        date: {
+            year: 2026,
+            month: 10,
+            day: 18,
+            hour: 11,
+            minute: 45
+        }
     },
     {
-        id: '#1045',
-        customer: 'Bob Brown',
-        product: 'Basic Plan',
-        status: 'Cancelled',
-        amount: '$99.00'
+        id: "#1045",
+        customerId: "USR-001",
+        customer: "John Doe",
+        product: "Basic Plan",
+        status: "Cancelled",
+        amount: 9900,
+        currency: "USD",
+        date: {
+            year: 2026,
+            month: 10,
+            day: 17,
+            hour: 9,
+            minute: 20
+        }
     },
     {
-        id: '#1046',
-        customer: 'Charlie Davis',
-        product: 'Enterprise',
-        status: 'Completed',
-        amount: '$500.00'
+        id: "#1046",
+        customerId: "USR-004",
+        customer: "Charlie Davis",
+        product: "Enterprise",
+        status: "Completed",
+        amount: 50000,
+        currency: "USD",
+        date: {
+            year: 2026,
+            month: 10,
+            day: 16,
+            hour: 18,
+            minute: 5
+        }
     }
-]
-
+];

@@ -363,6 +363,35 @@
   transform: translateY(-2px);
 }
 
+.custom-chart-tooltip {
+    min-width: 150px;
+    padding: 14px 18px;
+
+    background: rgba(12, 17, 40, 0.88);
+    border: 1px solid rgba(180, 195, 255, 0.2);
+    border-radius: 14px;
+
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.custom-chart-tooltip p {
+    color: #9ca9c9;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.custom-chart-tooltip h3 {
+    color: #c4b5fd;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+}
+
 .search-label {
   display: flex;
   justify-content: center;

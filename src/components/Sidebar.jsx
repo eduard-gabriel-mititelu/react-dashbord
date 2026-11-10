@@ -7,7 +7,7 @@ import {
   Package,
   X
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Sidebar({ isOpen, onClose }) {
   return (
@@ -24,30 +24,30 @@ function Sidebar({ isOpen, onClose }) {
           <X size={22} />
         </button>
         <nav className="sidebar-nav">
-                <Link to="/dashboard" className="active" onClick={onClose}>
+                <NavLink to="/dashboard" onClick={onClose}>
                     <LayoutDashboard size={20} />
                     <span>Dashboard</span>
-                </Link>
-                <Link to="/analytics" onClick={onClose}>
+                </NavLink>
+                <NavLink to="/analytics" onClick={onClose}>
                     <BarChart3 size={20} />
                     <span>Analytics</span>
-                </Link>
-                <Link to="/customers" onClick={onClose}>
+                </NavLink>
+                <NavLink to="/customers" onClick={onClose}>
                     <Users size={20} />
                     <span>Customers</span>
-                </Link>
-                <Link to="/orders" onClick={onClose}>
+                </NavLink>
+                <NavLink to="/orders" onClick={onClose}>
                     <ShoppingCart size={20} />
                     <span>Orders</span>
-                </Link>
-                <Link to="/products" onClick={onClose}>
+                </NavLink>
+                <NavLink to="/products" onClick={onClose}>
                     <Package size={20} />
                     <span>Products</span>
-                </Link>
-                <Link to="/settings" onClick={onClose}>
+                </NavLink>
+                <NavLink to="/settings" onClick={onClose}>
                     <Settings size={20} />
                     <span>Settings</span>
-                </Link>
+                </NavLink>
         </nav>
     </aside>
   );

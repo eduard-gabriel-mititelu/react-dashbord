@@ -10,7 +10,25 @@ import {
 
 import {revenueData} from '../data/dashboardData.js'
 
-function RevenueChart() {
+function CustomTooltip({ active, payload, label }) {
+    if (!active || !payload || !payload.length) {
+        return null;
+    }
+
+    return (
+        <div className="custom-chart-tooltip">
+            <p>{label}</p>
+            <h3>
+                {(payload[0].value / 100).toLocaleString("ro-RO", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                })} USD
+            </h3>
+        </div>
+    );
+}
+
+function RevenueChart({data = revenueData, xAxisDataKey = "month"}) {
     return (
         <div className="revenue-chart">
             <div className="chart-header">
@@ -22,17 +40,28 @@ function RevenueChart() {
             
             <div className="chart-container">
                 <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={revenueData}>
-                        <CartesianGrid strokeDasharray="3 3" />
+                    <LineChart data={data}>
+                        <CartesianGrid
+                            stroke="rgba(180, 195, 255, 0.07)"
+                            strokeDasharray="0"
+                            vertical={false}
+                        />
                         <XAxis
-                            dataKey="month"
-                            tick={{ fill: "#ecf0fb", fontSize: 13 }}
+                            dataKey={xAxisDataKey}
+                            axisLine={false}
+                            tickLine={false}
+                            tick={{ fill: "#8995b5", fontSize: 12 }}
+                            dy={12}
                         />
 
                         <YAxis
-                            tick={{ fill: "#ecf0fb", fontSize: 13 }}
+                            axisLine={false}
+                            tickLine={false}
+                            tick={{ fill: "#8995b5", fontSize: 12 }}
+                            tickFormatter={(value) => `${value / 100} USD`}
+                            width={75}
                         />
-                        <Tooltip />
+                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: "rgba(167, 139, 250, 0.25)" }} />
                         <Line 
                             type="monotone" 
                             dataKey="revenue" 
